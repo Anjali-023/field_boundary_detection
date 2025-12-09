@@ -1,9 +1,8 @@
 # 🌾Field Boundary Detection
 
-**Automated field boundary detection using Google Gemini AI and computer vision**
+**Automated field boundary detection using Google Gemini AI and SAM**
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ---
 
@@ -11,7 +10,7 @@
 
 1. **Downloads** satellite imagery from Google Maps
 2. **Detects** field boundaries using Gemini AI
-3. **Segments** individual fields with OpenCV
+3. **Segments** individual fields with SAM
 4. **Outputs** georeferenced shapefiles (`.shp`, `.geojson`)
 5. **Evaluates** accuracy against ground truth using IoU metrics
 
@@ -179,19 +178,12 @@ Sample output:
 - Verify API keys in `.env` file
 - Check API quotas (Gemini: 50/day free)
 
----
-
-## 📄 License
-
-MIT License - See LICENSE file
 
 ---
 
-## 🙏 Credits
+## 🙏 Acknowledgment
 
 - Google Gemini AI for boundary detection
-- OpenCV for image processing
-- GeoPandas for spatial operations
 
 ---
 
