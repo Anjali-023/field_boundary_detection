@@ -58,12 +58,12 @@ OUTPUT_DIR = "output"
 
 ```bash
 # Full pipeline
-python integrated_field_detector.py
+python integrated_segmentation_SAM.py 
 
 # Or individual steps:
-python gemini_detector.py              # Step 1: Detect boundaries
-python sam_segmentation.py              # Step 2: Extract fields
-python evaluation.py                    # Step 3: Calculate IoU
+python Boundary_detection.py              # Step 1: Detect boundaries
+python integrated_segmentation_SAM.py             # Step 2: Extract fields
+python IOU_evaluation.py                    # Step 3: Calculate IoU
 ```
 
 ---
@@ -71,27 +71,14 @@ python evaluation.py                    # Step 3: Calculate IoU
 ## 📁 Project Structure
 
 ```
-agricultural-field-detection/
-├── config.py                          # Configuration (Document #1)
-├── gemini_detector.py                 # Gemini AI detection (Document #2)
-├── integrated_field_detector.py       # Full pipeline (Document #3)
-├── evaluation.py                      # IoU evaluation (Document #4)
+field_boundary_detection/
+├── config.py                        # Configuration (Document #1)          
+├── integrated_segmentation_SAM.py       # Full pipeline (Document #3)
+├── IOU_evaluation.py                      # IoU evaluation (Document #4)
 ├── requirements.txt
-├── .env                               # API keys
-├── .gitignore
+├── Boundary_detection.py                             # API keys
 ├── README.md
-├── input/
-│   └── satellite.jpg                  # Your satellite image
-└── output/
-    ├── boundaries.png                 # AI-detected boundaries
-    ├── shapefiles/
-    │   ├── field_001.shp
-    │   ├── field_002.shp
-    │   └── all_fields.geojson
-    └── visualizations/
-        ├── overall_comparison.png
-        ├── zoom_regions.png
-        └── iou_distribution.png
+
 ```
 
 ---
@@ -101,9 +88,9 @@ agricultural-field-detection/
 | Your Document | Create This File | What It Does |
 |--------------|------------------|--------------|
 | Document #1 | `config.py` | All settings (coordinates, zoom, paths) |
-| Document #2 | `gemini_detector.py` | Gemini AI boundary detection |
-| Document #3 | `integrated_field_detector.py` | Complete pipeline (Gemini + SAM + Shapefiles) |
-| Document #4 | `evaluation.py` | IoU calculation & visualizations |
+| Document #2 | `Boundary_detection.py` | Gemini AI boundary detection |
+| Document #3 | `integrated_segmentation_SAM.py` | Complete pipeline (Gemini + SAM + Shapefiles) |
+| Document #4 | `IOU_evaluation.py` | IoU calculation & visualizations |
 
 ---
 
@@ -149,8 +136,7 @@ output/
 
 The system calculates:
 - **IoU** (Intersection over Union) per field
-- **Mean IoU** across all fields
-- **Detection rate** (fields found vs ground truth)
+)
 
 Sample output:
 ```
