@@ -1,4 +1,4 @@
-# 🌾Field Boundary Detection
+# Field Boundary Detection
 
 **Automated field boundary detection using Google Gemini AI and SAM**
 
